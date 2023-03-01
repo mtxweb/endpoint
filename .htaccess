@@ -1,0 +1,4 @@
+AuthUserFile   /var/www/html/.htpasswd
+AuthName AreaRiservata
+AuthType  Basic
+require user maurizio
