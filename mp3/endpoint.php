@@ -18,5 +18,4 @@ if(isset($_POST['type']))
         break;
     }
 }
-
 ?>
