@@ -1,7 +1,7 @@
 <?php
 define('DB', 'endpoint');
-define('USER', '');
-define('PASSWORD', '');
+define('USER', 'root');
+define('PASSWORD', 'asvk75vg');
 define('HOST', 'localhost');
 ##################
-require_once dirnamen(__FILE__) . '/../api/db.conncet.php';
+
