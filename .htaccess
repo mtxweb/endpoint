@@ -1,4 +1,4 @@
-AuthUserFile   /var/www/html/.htpasswd
+AuthUserFile   /var/www/.password/.htpasswd
 AuthName AreaRiservata
 AuthType  Basic
 require user endpoint
