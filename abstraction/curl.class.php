@@ -63,10 +63,15 @@ abstract class cUrlRequest
             $this->processResult();
         }
 
-        public function downloadFile($file, $downloadLocation)
+        public function downloadFile($file, $downloadLocation, $filename = '')
         {
+            if(!$filename)
+            {
+                $filename = $file;
+            }
+            $this->opt['headers'][] = 'Content-Type: multipart/form-data';
             $this->init_curl_connection($file);
-            $fh = fopen($downloadLocation . $file, "w");
+            $fh = fopen($downloadLocation . $filename, "w");
             curl_setopt($this->ch, CURLOPT_FILE, $fh);
             $this->response = curl_exec($this->ch);
             (int)$this->code = curl_getinfo($this->ch, CURLINFO_HTTP_CODE);
