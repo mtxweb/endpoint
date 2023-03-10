@@ -66,7 +66,7 @@ abstract class cUrlRequest
             $this->init_curl_connection($file);
             $fh = fopen($downloadLocation . $file, "w");
             curl_setopt($this->ch, CURLOPT_FILE, $fh);
-            $response = curl_exec($this->ch);
+            $this->response = curl_exec($this->ch);
             (int)$this->code = curl_getinfo($this->ch, CURLINFO_HTTP_CODE);
             fclose($fh);
             $this->processResult();
@@ -79,17 +79,18 @@ abstract class cUrlRequest
             {
                 $this->abort = true;
                 curl_close($this->ch);
+                $this->onError();
             }
             else
             {
                 $this->abort = false;
                 curl_close($this->ch);
-                return $this->response;
+                $this->onSuccess();
             }
         }
 
-        protected abstract function onError();
-        protected abstract function onSuccess();
+        public abstract function onError();
+        public abstract function onSuccess();
 }
 
 ?>
