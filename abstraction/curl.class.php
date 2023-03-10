@@ -15,7 +15,7 @@ abstract class cUrlRequest
 							  	'password' => '',
                                 'timeout' => 30,
                                 'headers' => array(),
-                                'verifiy-host' => 0,
+                                'verify-host' => 0,
                                 'verify-peer' => 0,
                                 'return-transfer' => true
                                 );
@@ -42,7 +42,7 @@ abstract class cUrlRequest
             curl_setopt($this->ch, CURLOPT_TIMEOUT, $this->opt['timeout']);
             if($this->opt['auth'])
             {
-                curl_setopt($this->ch, CURLOPT_USERPWD, "$this->username:$this->password");
+                curl_setopt($this->ch, CURLOPT_USERPWD, "$this->opt['username']:$this->opt['password']");
                 curl_setopt($this->ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
             }
             
