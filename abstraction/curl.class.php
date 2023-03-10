@@ -34,7 +34,7 @@ abstract class cUrlRequest
             $this->ch = curl_init($this->opt['url'] . $str);
             if($this->opt['headers'])
             {
-                curl_setopt($this->ch, CURLOPT_HTTPHEADER, $this->headers);
+                curl_setopt($this->ch, CURLOPT_HTTPHEADER, $this->opt['headers']);
             }
             curl_setopt($this->ch, CURLOPT_RETURNTRANSFER, $this->opt['return-transfer']);
             curl_setopt($this->ch, CURLOPT_SSL_VERIFYHOST, $this->opt['verify-host']);
