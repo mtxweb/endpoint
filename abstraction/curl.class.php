@@ -42,7 +42,9 @@ abstract class cUrlRequest
             curl_setopt($this->ch, CURLOPT_TIMEOUT, $this->opt['timeout']);
             if($this->opt['auth'])
             {
-                curl_setopt($this->ch, CURLOPT_USERPWD, "$this->opt['username']:$this->opt['password']");
+                $user = $this->opt['username'];
+                $password = $this->opt['password'];
+                curl_setopt($this->ch, CURLOPT_USERPWD, "$user:$password");
                 curl_setopt($this->ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
             }
             
